@@ -180,27 +180,37 @@ header {
 }
 
 .website-container section > div > .absolute.inset-0:not([class*="z-"]) {
-    background-color: transparent !important;
-    backdrop-filter: blur(2px) saturate(112%);
+    background-color: rgba(255, 248, 228, 0.22) !important;
+    backdrop-filter: none;
 }
 
 .site-footer-card {
-    background-color: rgba(255, 248, 228, 1) !important;
+    background-color: rgba(255, 248, 228, 0.28) !important;
+    backdrop-filter: none;
+}
+
+.website-container footer .relative > .relative.mx-auto > .flex.flex-col.overflow-hidden.rounded-3xl {
+    background-color: rgba(255, 248, 228, 0.28) !important;
     backdrop-filter: none;
 }
 
 .website-container main,
 .website-container footer {
-    color: #ffffff !important;
+    color: #1b1b16 !important;
 }
 
-.website-container main :where(p, span, a, li, label, button, input, textarea, select, option, strong, small),
-.website-container footer :where(p, span, a, li, label, button, input, textarea, select, option, strong, small) {
-    color: #ffffff !important;
+.website-container main :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td),
+.website-container footer :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td) {
+    color: #2a2a24 !important;
 }
 
 .website-container main :where(h1, h2, h3, h4, h5, h6),
 .website-container footer :where(h1, h2, h3, h4, h5, h6) {
-    color: #E8A317 !important;
+    color: #15120e !important;
+}
+
+.website-container main :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td),
+.website-container footer :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td) {
+    text-shadow: none;
 }
 
