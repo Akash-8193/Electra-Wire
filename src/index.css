@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-html, body { background-color: #FFF8E4; }
-
+html, body { 
+    background-color: #fbfaf5; 
+    font-family: 'Poppins', sans-serif !important;
+    min-height: 100vh;
+}
         @container root (min-width: 0) {
             .website-container[data-theme-scope="elegant-serif"] * {
                 --font-size-xs: clamp(0.6944rem, 0.6531rem + 0.1836cqi, 0.8000rem) !important;
@@ -20,92 +24,92 @@ html, body { background-color: #FFF8E4; }
 			--typography-display-lg-font-weight: 700 !important;
 			--typography-display-lg-line-height: 1.25 !important;
 			--typography-display-lg-letter-spacing: 0em !important;
-			--typography-display-lg-font-family: var(--font-playfair-display, "Playfair Display", sans-serif) !important;
+			--typography-display-lg-font-family: 'Poppins', sans-serif !important;
 			--typography-display-md-font-size: var(--font-size-5xl) !important;
 			--typography-display-md-font-weight: 600 !important;
 			--typography-display-md-line-height: 1.25 !important;
 			--typography-display-md-letter-spacing: 0em !important;
-			--typography-display-md-font-family: var(--font-playfair-display, "Playfair Display", sans-serif) !important;
+			--typography-display-md-font-family: 'Poppins', sans-serif !important;
 			--typography-display-sm-font-size: var(--font-size-4xl) !important;
 			--typography-display-sm-font-weight: 600 !important;
 			--typography-display-sm-line-height: 1.25 !important;
 			--typography-display-sm-letter-spacing: 0em !important;
-			--typography-display-sm-font-family: var(--font-playfair-display, "Playfair Display", sans-serif) !important;
+			--typography-display-sm-font-family: 'Poppins', sans-serif !important;
 			--typography-heading-lg-font-size: var(--font-size-3xl) !important;
 			--typography-heading-lg-font-weight: 600 !important;
 			--typography-heading-lg-line-height: 1.25 !important;
 			--typography-heading-lg-letter-spacing: -0.025em !important;
-			--typography-heading-lg-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-heading-lg-font-family: 'Poppins', sans-serif !important;
 			--typography-heading-md-font-size: var(--font-size-2xl) !important;
 			--typography-heading-md-font-weight: 600 !important;
 			--typography-heading-md-line-height: 1.25 !important;
 			--typography-heading-md-letter-spacing: 0em !important;
-			--typography-heading-md-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-heading-md-font-family: 'Poppins', sans-serif !important;
 			--typography-heading-sm-font-size: var(--font-size-xl) !important;
 			--typography-heading-sm-font-weight: 600 !important;
 			--typography-heading-sm-line-height: 1.5 !important;
 			--typography-heading-sm-letter-spacing: 0em !important;
-			--typography-heading-sm-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-heading-sm-font-family: 'Poppins', sans-serif !important;
 			--typography-title-lg-font-size: var(--font-size-xl) !important;
 			--typography-title-lg-font-weight: 600 !important;
 			--typography-title-lg-line-height: 1.5 !important;
 			--typography-title-lg-letter-spacing: 0em !important;
-			--typography-title-lg-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-title-lg-font-family: 'Poppins', sans-serif !important;
 			--typography-title-md-font-size: var(--font-size-lg) !important;
 			--typography-title-md-font-weight: 600 !important;
 			--typography-title-md-line-height: 1.5 !important;
 			--typography-title-md-letter-spacing: 0em !important;
-			--typography-title-md-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-title-md-font-family: 'Poppins', sans-serif !important;
 			--typography-title-sm-font-size: var(--font-size-base) !important;
 			--typography-title-sm-font-weight: 600 !important;
 			--typography-title-sm-line-height: 1.5 !important;
 			--typography-title-sm-letter-spacing: 0em !important;
-			--typography-title-sm-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-title-sm-font-family: 'Poppins', sans-serif !important;
 			--typography-body-lg-font-size: var(--font-size-lg) !important;
 			--typography-body-lg-font-weight: 400 !important;
 			--typography-body-lg-line-height: 1.625 !important;
 			--typography-body-lg-letter-spacing: 0em !important;
-			--typography-body-lg-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-body-lg-font-family: 'Poppins', sans-serif !important;
 			--typography-body-md-font-size: var(--font-size-base) !important;
 			--typography-body-md-font-weight: 400 !important;
 			--typography-body-md-line-height: 1.5 !important;
 			--typography-body-md-letter-spacing: 0em !important;
-			--typography-body-md-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-body-md-font-family: 'Poppins', sans-serif !important;
 			--typography-body-sm-font-size: var(--font-size-sm) !important;
 			--typography-body-sm-font-weight: 400 !important;
 			--typography-body-sm-line-height: 1.5 !important;
 			--typography-body-sm-letter-spacing: 0em !important;
-			--typography-body-sm-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-body-sm-font-family: 'Poppins', sans-serif !important;
 			--typography-body-lg-em-font-size: var(--font-size-lg) !important;
 			--typography-body-lg-em-font-weight: 600 !important;
 			--typography-body-lg-em-line-height: 1.625 !important;
 			--typography-body-lg-em-letter-spacing: 0em !important;
-			--typography-body-lg-em-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-body-lg-em-font-family: 'Poppins', sans-serif !important;
 			--typography-body-md-em-font-size: var(--font-size-base) !important;
 			--typography-body-md-em-font-weight: 600 !important;
 			--typography-body-md-em-line-height: 1.5 !important;
 			--typography-body-md-em-letter-spacing: 0em !important;
-			--typography-body-md-em-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-body-md-em-font-family: 'Poppins', sans-serif !important;
 			--typography-body-sm-em-font-size: var(--font-size-sm) !important;
 			--typography-body-sm-em-font-weight: 600 !important;
 			--typography-body-sm-em-line-height: 1.5 !important;
 			--typography-body-sm-em-letter-spacing: 0em !important;
-			--typography-body-sm-em-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-body-sm-em-font-family: 'Poppins', sans-serif !important;
 			--typography-label-lg-font-size: var(--font-size-sm) !important;
 			--typography-label-lg-font-weight: 500 !important;
 			--typography-label-lg-line-height: 1.5 !important;
 			--typography-label-lg-letter-spacing: 0.025em !important;
-			--typography-label-lg-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-label-lg-font-family: 'Poppins', sans-serif !important;
 			--typography-label-md-font-size: var(--font-size-xs) !important;
 			--typography-label-md-font-weight: 500 !important;
 			--typography-label-md-line-height: 1.5 !important;
 			--typography-label-md-letter-spacing: 0.025em !important;
-			--typography-label-md-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-label-md-font-family: 'Poppins', sans-serif !important;
 			--typography-label-sm-font-size: var(--font-size-xs) !important;
 			--typography-label-sm-font-weight: 400 !important;
 			--typography-label-sm-line-height: 1.5 !important;
 			--typography-label-sm-letter-spacing: 0em !important;
-			--typography-label-sm-font-family: var(--font-mulish, "Mulish", sans-serif) !important;
+			--typography-label-sm-font-family: 'Poppins', sans-serif !important;
 			--typography-code-font-size: var(--font-size-sm) !important;
 			--typography-code-font-weight: 400 !important;
 			--typography-code-line-height: 1.5 !important;
@@ -115,7 +119,7 @@ html, body { background-color: #FFF8E4; }
         }
 	
 
-.website-container { overflow:auto !important;overflow-anchor:none !important;container-name:root !important;container-type:size !important;height:100% }
+.website-container { overflow:auto !important;overflow-anchor:none !important;container-name:root !important;container-type:size !important;height:100%;position:relative;isolation:isolate; }
 
 /* Reset and base styles */
 html, body, #root {
@@ -124,6 +128,79 @@ html, body, #root {
     padding: 0;
 }
 
-body {
-    background-color: #FFF8E4;
+/* ========================================================================== */
+/* PREMIUM DESIGN SYSTEM: INDUSTRIAL MINIMALISM                                */
+/* High-performance, SEO-friendly, and Brand-aligned Background               */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* PREMIUM DESIGN: LAYERED GEOMETRIC SQUARES                                   */
+/* Professional, minimal, and performance-optimized for Electra Wires          */
+/* ========================================================================== */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #fbfaf5;
+    background-repeat: no-repeat;
 }
+
+/* Maintain global section transparency to allow the geometric design to show through */
+section, 
+main, 
+.website-container, 
+#root {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.website-container {
+    position: relative;
+}
+
+.website-container::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("/backgrounds/electrical-wire-background.jpeg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 1;
+    isolation: isolate;
+}
+
+header {
+    position: fixed;
+    z-index: 9999 !important;
+}
+
+.website-container section > div > .absolute.inset-0:not([class*="z-"]) {
+    background-color: transparent !important;
+    backdrop-filter: blur(2px) saturate(112%);
+}
+
+.site-footer-card {
+    background-color: rgba(255, 248, 228, 1) !important;
+    backdrop-filter: none;
+}
+
+.website-container main,
+.website-container footer {
+    color: #ffffff !important;
+}
+
+.website-container main :where(p, span, a, li, label, button, input, textarea, select, option, strong, small),
+.website-container footer :where(p, span, a, li, label, button, input, textarea, select, option, strong, small) {
+    color: #ffffff !important;
+}
+
+.website-container main :where(h1, h2, h3, h4, h5, h6),
+.website-container footer :where(h1, h2, h3, h4, h5, h6) {
+    color: #E8A317 !important;
+}
+
