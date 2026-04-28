@@ -22,7 +22,7 @@ export const useGlobalAnimations = (rootRef) => {
         const ctx = gsap.context((self) => {
             // Helper to select elements only within rootRef
             const q = gsap.utils.selector(rootRef);
-            
+
             // The scrollable container
             const scrollerEl = rootRef.current;
 
@@ -37,7 +37,7 @@ export const useGlobalAnimations = (rootRef) => {
 
                 // Empty the element carefully
                 el.innerHTML = '';
-                
+
                 // Create spans for each character
                 const chars = originalText.split('');
                 const charSpans = chars.map(char => {
@@ -71,14 +71,14 @@ export const useGlobalAnimations = (rootRef) => {
             // 2. HERO SECTION ANIMATIONS (Existing classes)
             const heroBg = q(".gsap-hero-bg");
             if (heroBg.length > 0) {
-                gsap.fromTo(heroBg, 
+                gsap.fromTo(heroBg,
                     { scale: 1 },
-                    { 
-                        scale: 1.15, 
-                        duration: 15, 
-                        ease: "none", 
-                        repeat: -1, 
-                        yoyo: true 
+                    {
+                        scale: 1.15,
+                        duration: 15,
+                        ease: "none",
+                        repeat: -1,
+                        yoyo: true
                     }
                 );
             }
@@ -114,7 +114,7 @@ export const useGlobalAnimations = (rootRef) => {
                 if (el.dataset.animatedTypewriter === 'true' || el.closest('h1')) return;
                 if (el.dataset.animatedText === 'true') return;
                 if (el.closest('.gsap-card') || el.closest('[role="group"]')) return;
-                
+
                 el.dataset.animatedText = 'true';
 
                 const rect = el.getBoundingClientRect();
@@ -210,7 +210,7 @@ export const useGlobalAnimations = (rootRef) => {
             // 6. HOVER EFFECTS
             // Cards/images: slight zoom (scale 1.05) + soft shadow + lift effect
             const hoverCards = q(".gsap-card, [role='group'][aria-roledescription='slide']");
-            
+
             // Find grids that represent cards
             const extraCards = [];
             cardGrids.forEach(grid => {
@@ -222,9 +222,9 @@ export const useGlobalAnimations = (rootRef) => {
             });
 
             // Find standalone images (not nested inside cards)
-            const standaloneImgs = q("img").filter(img => 
-                !img.closest('.gsap-card') && 
-                !img.closest('[role="group"]') && 
+            const standaloneImgs = q("img").filter(img =>
+                !img.closest('.gsap-card') &&
+                !img.closest('[role="group"]') &&
                 !extraCards.some(card => card.contains(img))
             );
 
@@ -235,22 +235,22 @@ export const useGlobalAnimations = (rootRef) => {
                 el.style.transition = 'box-shadow 0.5s ease, transform 0.5s ease';
 
                 const onEnter = () => {
-                    gsap.to(el, { 
-                        scale: 1.05, 
-                        y: -10, 
-                        boxShadow: "0 20px 40px rgba(0,0,0,0.15)", 
-                        duration: 0.5, 
-                        ease: "power3.out" 
+                    gsap.to(el, {
+                        scale: 1.05,
+                        y: -10,
+                        boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                        duration: 0.5,
+                        ease: "power3.out"
                     });
                 };
 
                 const onLeave = () => {
-                    gsap.to(el, { 
-                        scale: 1, 
-                        y: 0, 
-                        boxShadow: "0 4px 6px rgba(0,0,0,0.05)", 
-                        duration: 0.5, 
-                        ease: "power3.out" 
+                    gsap.to(el, {
+                        scale: 1,
+                        y: 0,
+                        boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
+                        duration: 0.5,
+                        ease: "power3.out"
                     });
                 };
 
@@ -268,11 +268,11 @@ export const useGlobalAnimations = (rootRef) => {
                 const originalText = el.innerText;
                 const numbers = originalText.match(/\d+/);
                 if (!numbers) return;
-                
+
                 const finalVal = parseInt(numbers[0], 10);
                 const prefix = originalText.substring(0, numbers.index);
                 const suffix = originalText.substring(numbers.index + numbers[0].length);
-                
+
                 const obj = { value: 0 };
                 gsap.to(obj, {
                     scrollTrigger: {
@@ -310,7 +310,7 @@ export const useGlobalAnimations = (rootRef) => {
         }, rootRef);
 
         return () => {
-            ctx.revert(); 
+            ctx.revert();
             ScrollTrigger.refresh();
         };
     }, [location, rootRef]);
