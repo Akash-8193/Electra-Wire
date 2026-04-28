@@ -166,7 +166,7 @@ main,
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background-image: url("/backgrounds/electrical-wire-background.jpeg");
+    background-image: url("/backgrounds/electrical-wire-background.jpg");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -215,4 +215,7 @@ header {
 .website-container footer :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td) {
     text-shadow: none;
 }
+
+
+.website-container main h1#products-main-title { color: #000000 !important; }
 
