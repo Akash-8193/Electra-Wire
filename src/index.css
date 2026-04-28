@@ -204,11 +204,13 @@ header {
     color: #2a2a24 !important;
 }
 
-.website-container main :where(h1, h2, h3, h4, h5, h6),
+.website-container main :where( h2, h3, h4, h5, h6),
 .website-container footer :where(h1, h2, h3, h4, h5, h6) {
     color: #15120e !important;
 }
-
+.website-container main :where(h1) {
+    color: #ffffff !important;
+}
 .website-container main :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td),
 .website-container footer :where(p, span, a, li, label, input, textarea, select, option, strong, small, em, b, i, code, figcaption, blockquote, dt, dd, th, td) {
     text-shadow: none;
