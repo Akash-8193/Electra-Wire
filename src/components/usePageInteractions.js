@@ -75,16 +75,28 @@ export const usePageInteractions = ({ rootRef, carouselTitle, faqTitle }) => {
     };
 
     const onPrev = () => setCarouselIndex((current) => clamp(current - 1, 0, slides.length - 1));
-    const onNext = () => setCarouselIndex((current) => clamp(current + 1, 0, slides.length - 1));
+    const onNext = () => setCarouselIndex((current) => {
+      const next = current + 1;
+      return next >= slides.length ? 0 : next; // Loop back to start
+    });
+
+    // Auto-slide logic
+    const autoSlideInterval = setInterval(onNext, 5000); // Advance every 5 seconds
 
     prevButtons.forEach((button) => {
       button.disabled = false;
-      button.addEventListener('click', onPrev);
+      button.addEventListener('click', () => {
+        clearInterval(autoSlideInterval); // Stop auto-slide on interaction
+        onPrev();
+      });
     });
 
     nextButtons.forEach((button) => {
       button.disabled = false;
-      button.addEventListener('click', onNext);
+      button.addEventListener('click', () => {
+        clearInterval(autoSlideInterval); // Stop auto-slide on interaction
+        onNext();
+      });
     });
 
     const handleResize = () => applyTransform();
@@ -92,6 +104,7 @@ export const usePageInteractions = ({ rootRef, carouselTitle, faqTitle }) => {
     window.addEventListener('resize', handleResize);
 
     return () => {
+      clearInterval(autoSlideInterval);
       prevButtons.forEach((button) => {
         button.removeEventListener('click', onPrev);
       });
