@@ -38,6 +38,41 @@ const wrapTextInSpans = (el) => {
     return chars;
 };
 
+const wrapNumbersInSpans = (el) => {
+    const textNodes = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+    let node;
+    while ((node = walker.nextNode())) {
+        if (node.nodeValue.trim() !== '' && node.parentNode.tagName !== 'SCRIPT' && node.parentNode.tagName !== 'STYLE') {
+            if (/\b\d+\b/.test(node.nodeValue)) {
+                textNodes.push(node);
+            }
+        }
+    }
+    
+    const numberSpans = [];
+    textNodes.forEach(textNode => {
+        const text = textNode.nodeValue;
+        const fragment = document.createDocumentFragment();
+        
+        const parts = text.split(/(\b\d+\b)/);
+        parts.forEach(part => {
+            if (/\b\d+\b/.test(part)) {
+                const span = document.createElement('span');
+                span.textContent = part;
+                span.className = 'gsap-stat-number-dynamic';
+                span.style.fontVariantNumeric = 'tabular-nums';
+                fragment.appendChild(span);
+                numberSpans.push(span);
+            } else if (part !== '') {
+                fragment.appendChild(document.createTextNode(part));
+            }
+        });
+        textNode.parentNode.replaceChild(fragment, textNode);
+    });
+    return numberSpans;
+};
+
 /**
  * useGlobalAnimations
  * Premium minimal animations inspired by modern e-commerce (TwoLeavesTea.com style).
@@ -123,7 +158,8 @@ export const useGlobalAnimations = (rootRef) => {
             });
 
             // 4. TEXT REVEAL (PREMIUM STAGGER)
-            q("h2, h3").forEach(el => {
+            // H3 headings upward fade
+            q("h3").forEach(el => {
                 if (el.dataset.animated === 'true') return;
                 el.dataset.animated = 'true';
 
@@ -138,6 +174,25 @@ export const useGlobalAnimations = (rootRef) => {
                     opacity: 0,
                     duration: 0.8,
                     ease: "power3.out"
+                });
+            });
+
+            // 4b. H2 HEADINGS SLIDE-IN FROM RIGHT
+            q("h2").forEach(el => {
+                if (el.dataset.animatedH2 === 'true') return;
+                el.dataset.animatedH2 = 'true';
+
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        scroller: scrollerEl,
+                        start: "top 90%",
+                        once: true
+                    },
+                    x: 60,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power2.out"
                 });
             });
 
@@ -297,6 +352,41 @@ export const useGlobalAnimations = (rootRef) => {
                 }
             });
 
+            // 10. COUNT-UP STATS
+            const statElements = q("h1, h2, h3");
+            statElements.forEach(el => {
+                if (el.dataset.animatedCount === 'true') return;
+                
+                el.dataset.originalHtmlCount = el.innerHTML;
+                el.dataset.animatedCount = 'true';
+
+                const numSpans = wrapNumbersInSpans(el);
+                
+                numSpans.forEach(span => {
+                    const targetNum = parseInt(span.textContent, 10);
+                    if (isNaN(targetNum)) return;
+                    
+                    const obj = { val: 0 };
+                    gsap.to(obj, {
+                        scrollTrigger: {
+                            trigger: el,
+                            scroller: scrollerEl,
+                            start: "top 90%",
+                            once: true
+                        },
+                        val: targetNum,
+                        duration: 2.5,
+                        ease: "power2.out",
+                        onUpdate: () => {
+                            span.textContent = Math.floor(obj.val);
+                        },
+                        onComplete: () => {
+                            span.textContent = targetNum;
+                        }
+                    });
+                });
+            });
+
         }, rootRef);
 
         return () => {
@@ -307,6 +397,14 @@ export const useGlobalAnimations = (rootRef) => {
                     if (p.dataset.originalHtml) {
                         p.innerHTML = p.dataset.originalHtml;
                         p.dataset.animatedTyping = 'false';
+                    }
+                });
+                
+                const animatedCounts = rootRef.current.querySelectorAll("[data-animated-count='true']");
+                animatedCounts.forEach(el => {
+                    if (el.dataset.originalHtmlCount) {
+                        el.innerHTML = el.dataset.originalHtmlCount;
+                        el.dataset.animatedCount = 'false';
                     }
                 });
             }

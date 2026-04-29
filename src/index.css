@@ -219,3 +219,35 @@ header {
 
 .website-container main h1#products-main-title { color: #000000 !important; }
 
+
+/* WAVY BLOB EFFECT BEHIND H2 HEADINGS */
+.website-container main h2 {
+    position: relative;
+    z-index: 1;
+}
+
+.website-container main h2::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(232, 163, 23, 0.25) 0%, rgba(232, 163, 23, 0) 70%);
+    transform: translate(-30%, -50%);
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: blobWave 10s infinite alternate ease-in-out;
+}
+
+@keyframes blobWave {
+    0% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        transform: translate(-30%, -50%) rotate(0deg) scale(1);
+    }
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translate(-20%, -50%) rotate(45deg) scale(1.15);
+    }
+}
