@@ -26,16 +26,7 @@ const WhatsAppButton = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 textDecoration: 'none'
-            }}
-            onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.1)';
-                e.currentTarget.style.boxShadow = '0px 15px 35px rgba(0,0,0,0.4)';
-            }}
-            onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.boxShadow = '0px 10px 25px rgba(0,0,0,0.3)';
             }}
         >
             <svg 
