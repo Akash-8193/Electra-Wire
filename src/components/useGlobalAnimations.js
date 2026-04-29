@@ -6,6 +6,38 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
+const wrapTextInSpans = (el) => {
+    const textNodes = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+    let node;
+    while ((node = walker.nextNode())) {
+        if (node.nodeValue.trim() !== '' && node.parentNode.tagName !== 'SCRIPT' && node.parentNode.tagName !== 'STYLE') {
+            textNodes.push(node);
+        }
+    }
+    
+    const chars = [];
+    textNodes.forEach(textNode => {
+        const text = textNode.nodeValue;
+        const fragment = document.createDocumentFragment();
+        
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            if (char === ' ' || char === '\n' || char === '\t') {
+                fragment.appendChild(document.createTextNode(char));
+            } else {
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.style.opacity = '0';
+                fragment.appendChild(span);
+                chars.push(span);
+            }
+        }
+        textNode.parentNode.replaceChild(fragment, textNode);
+    });
+    return chars;
+};
+
 /**
  * useGlobalAnimations
  * Premium minimal animations inspired by modern e-commerce (TwoLeavesTea.com style).
@@ -238,10 +270,46 @@ export const useGlobalAnimations = (rootRef) => {
                 });
             });
 
+            // 9. TYPEWRITER PARAGRAPHS
+            const paragraphs = q("p");
+            paragraphs.forEach(p => {
+                if (p.dataset.animatedTyping === 'true') return;
+                if (p.closest('header')) return; 
+                
+                p.dataset.originalHtml = p.innerHTML;
+                p.dataset.animatedTyping = 'true';
+
+                const chars = wrapTextInSpans(p);
+                
+                if (chars.length > 0) {
+                    gsap.to(chars, {
+                        scrollTrigger: {
+                            trigger: p,
+                            scroller: scrollerEl,
+                            start: "top 90%",
+                            once: true
+                        },
+                        opacity: 1,
+                        duration: 0.1,
+                        stagger: 0.015,
+                        ease: "power1.inOut"
+                    });
+                }
+            });
+
         }, rootRef);
 
         return () => {
             ctx.revert();
+            if (rootRef.current) {
+                const animatedParagraphs = rootRef.current.querySelectorAll("p[data-animated-typing='true']");
+                animatedParagraphs.forEach(p => {
+                    if (p.dataset.originalHtml) {
+                        p.innerHTML = p.dataset.originalHtml;
+                        p.dataset.animatedTyping = 'false';
+                    }
+                });
+            }
             ScrollTrigger.refresh();
         };
     }, [location, rootRef]);
