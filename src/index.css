@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 html, body { 
     background-color: #fbfaf5; 
@@ -218,6 +218,7 @@ header {
 
 
 .website-container main h1#products-main-title { color: #000000 !important; }
+.website-container main h1#blogs-main-title { color: #000000 !important; }
 
 
 /* WAVY BLOB EFFECT BEHIND H2 HEADINGS */
