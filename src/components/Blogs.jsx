@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageInteractions } from './usePageInteractions';
 
-// import video1 from '../assets/electric-video.mp4';
-import img2 from '../assets/Image Apr 29, 2026, 12_02_58 PM.png';
-import img3 from '../assets/Image Apr 29, 2026, 03_26_01 PM.png';
+import videoHero from '../assets/animate (3).mp4';
+import videoCard1 from '../assets/electric-video.mp4.mp4';
+import videoCard2 from '../assets/animate (2).mp4';
+import videoCard3 from '../assets/animate (1).mp4';
 
 const Blogs = () => {
     const rootRef = useRef(null);
@@ -15,7 +16,7 @@ const Blogs = () => {
             <div className="w-full" id="हीरो सेक्शन">
                 <section className="w-full" style={{ marginTop: 'calc(-1 * 96px)', contain: 'layout style paint' }}>
                     <div className="relative" style={{ paddingTop: '96px' }}>
-                        <div className="absolute inset-0" style={{ borderRadius: 'inherit', background: '#FFF8E4' }}></div>
+                        <div className="absolute inset-0" style={{ borderRadius: 'inherit', background: '#000000ff' }}></div>
                         <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-0 py-8 @desktop:flex-row @desktop:items-stretch" style={{ zIndex: '10' }}>
                             <div style={{ '--bg-color': 'rgba(0%, 0%, 0%, 0.04764)' }} className="bg-(--bg-color) w-full p-6 @tablet:p-8 @desktop:w-1/2 @desktop:shrink-0 @desktop:px-14 @desktop:py-16 rounded-t-3xl @desktop:rounded-t-none @desktop:rounded-l-3xl">
                                 <div className="flex h-full flex-col gap-6">
@@ -38,7 +39,15 @@ const Blogs = () => {
                             </div>
                             <div className="relative aspect-4/3 w-full overflow-hidden @desktop:aspect-auto @desktop:w-1/2 @desktop:shrink-0 rounded-b-3xl @desktop:rounded-b-none @desktop:rounded-r-3xl">
                                 <div className="relative h-full w-full overflow-hidden">
-                                    <img alt="Electra Wires Blog Hero" fetchPriority="high" loading="eager" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', objectPosition: '50% 50%', color: 'transparent', transformOrigin: '50% 50%', transform: 'scale(1)' }} sizes="(max-width: 1024px) 100vw, 50vw" src="/hero-product-new.jpg" />
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', objectPosition: '50% 50%', transformOrigin: '50% 50%', transform: 'scale(1)' }}
+                                    >
+                                        <source src={videoHero} type="video/mp4" />
+                                    </video>
                                 </div>
                             </div>
                         </div>
@@ -71,14 +80,15 @@ const Blogs = () => {
                                     {/* Blog Card 1 */}
                                     <div className="flex flex-col gap-5">
                                         <div className="overflow-hidden rounded-[28px] bg-[#f4efe2]" style={{ aspectRatio: '1535 / 1024' }}>
-                                       <video
-  src="/src/assets/electric-video.mp4"
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="h-full w-full object-contain"
-/>
+                                            <video
+                                                src={videoCard1}
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                className="h-full w-full object-contain"
+                                                style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%' }}
+                                            />
                                             {/* <img alt="Why Fire Retardant Wires Are Essential" loading="lazy" decoding="async" className="h-full w-full object-contain" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%', color: 'transparent' }} src={img1} /> */}
                                         </div>
                                         <div className="flex flex-col gap-3 px-1">
@@ -94,7 +104,15 @@ const Blogs = () => {
                                     {/* Blog Card 2 */}
                                     <div className="flex flex-col gap-5">
                                         <div className="overflow-hidden rounded-[28px] bg-[#f4efe2]" style={{ aspectRatio: '1535 / 1024' }}>
-                                            <img alt="Understanding Industrial Power Loads" loading="lazy" decoding="async" className="h-full w-full object-contain" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%', color: 'transparent' }} src={img2} />
+                                            <video
+                                                src={videoCard2}
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                className="h-full w-full object-contain"
+                                                style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%' }}
+                                            />
                                         </div>
                                         <div className="flex flex-col gap-3 px-1">
                                             <span className="text-sm font-semibold text-[#da990f]">Industrial Use • April 28, 2026</span>
@@ -109,7 +127,15 @@ const Blogs = () => {
                                     {/* Blog Card 3 */}
                                     <div className="flex flex-col gap-5">
                                         <div className="overflow-hidden rounded-[28px] bg-[#f4efe2]" style={{ aspectRatio: '1535 / 1024' }}>
-                                            <img alt="The Future of Solar Integration" loading="lazy" decoding="async" className="h-full w-full object-contain" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%', color: 'transparent' }} src={img3} />
+                                            <video
+                                                src={videoCard3}
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                className="h-full w-full object-contain"
+                                                style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%' }}
+                                            />
                                         </div>
                                         <div className="flex flex-col gap-3 px-1">
                                             <span className="text-sm font-semibold text-[#da990f]">Renewable Energy • March 12, 2026</span>

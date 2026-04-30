@@ -95,10 +95,10 @@ export const useGlobalAnimations = (rootRef) => {
             const heroSection = sections.find(s => s.id === "हीरो सेक्शन" || s.parentElement?.id === "हीरो सेक्शन" || s.classList.contains('min-h-screen'));
 
             if (heroSection) {
-                // Smooth section entrance on load
+                // Smooth section entrance on load - no scale to prevent layout shift
                 gsap.fromTo(heroSection,
                     { opacity: 0 },
-                    { opacity: 1, duration: 1.2, ease: "power3.out", clearProps: "opacity" }
+                    { opacity: 1, duration: 1, ease: "power2.out", clearProps: "opacity" }
                 );
 
                 const headline = heroSection.querySelector("h1");
@@ -107,30 +107,29 @@ export const useGlobalAnimations = (rootRef) => {
 
                 if (headline) {
                     gsap.fromTo(headline, 
-                        { y: 30, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 1, delay: 0.3, ease: "power4.out", clearProps: "all" }
+                        { y: 20, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out", clearProps: "opacity,transform" }
                     );
                 }
 
                 if (subtext) {
                     gsap.fromTo(subtext, 
-                        { y: 20, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 1, delay: 0.6, ease: "power3.out", clearProps: "all" }
+                        { y: 15, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.8, delay: 0.4, ease: "power2.out", clearProps: "opacity,transform" }
                     );
                 }
 
                 if (ctas.length > 0) {
                     gsap.fromTo(ctas, 
-                        { y: 15, opacity: 0, scale: 0.95 },
+                        { y: 10, opacity: 0 },
                         { 
                             y: 0, 
                             opacity: 1, 
-                            scale: 1, 
-                            duration: 0.8, 
-                            delay: 0.9, 
+                            duration: 0.6, 
+                            delay: 0.6, 
                             stagger: 0.1, 
-                            ease: "power3.out",
-                            clearProps: "transform,opacity,scale" 
+                            ease: "power2.out",
+                            clearProps: "opacity,transform" 
                         }
                     );
                 }
@@ -155,7 +154,7 @@ export const useGlobalAnimations = (rootRef) => {
                         opacity: 1,
                         duration: 1,
                         ease: "power2.out",
-                        clearProps: "all"
+                        clearProps: "opacity,transform"
                     }
                 );
             });
@@ -166,18 +165,22 @@ export const useGlobalAnimations = (rootRef) => {
                 if (el.dataset.animated === 'true') return;
                 el.dataset.animated = 'true';
 
-                gsap.from(el, {
-                    scrollTrigger: {
-                        trigger: el,
-                        scroller: scrollerEl,
-                        start: "top 90%",
-                        once: true
-                    },
-                    y: 20,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.out"
-                });
+                gsap.fromTo(el, 
+                    { y: 20, opacity: 0 },
+                    {
+                        scrollTrigger: {
+                            trigger: el,
+                            scroller: scrollerEl,
+                            start: "top 90%",
+                            once: true
+                        },
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        clearProps: "opacity,transform"
+                    }
+                );
             });
 
             // 4b. H2 HEADINGS SLIDE-IN FROM RIGHT
@@ -185,18 +188,22 @@ export const useGlobalAnimations = (rootRef) => {
                 if (el.dataset.animatedH2 === 'true') return;
                 el.dataset.animatedH2 = 'true';
 
-                gsap.from(el, {
-                    scrollTrigger: {
-                        trigger: el,
-                        scroller: scrollerEl,
-                        start: "top 90%",
-                        once: true
-                    },
-                    x: 60,
-                    opacity: 0,
-                    duration: 1.2,
-                    ease: "power2.out"
-                });
+                gsap.fromTo(el, 
+                    { x: 40, opacity: 0 },
+                    {
+                        scrollTrigger: {
+                            trigger: el,
+                            scroller: scrollerEl,
+                            start: "top 90%",
+                            once: true
+                        },
+                        x: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power2.out",
+                        clearProps: "opacity,transform"
+                    }
+                );
             });
 
             // 5. CARD / PRODUCT GRID
@@ -210,19 +217,23 @@ export const useGlobalAnimations = (rootRef) => {
                 );
 
                 if (cards.length > 0 && cards.length < 30) {
-                    gsap.from(cards, {
-                        scrollTrigger: {
-                            trigger: grid,
-                            scroller: scrollerEl,
-                            start: "top 88%",
-                            once: true
-                        },
-                        y: 30,
-                        opacity: 0,
-                        stagger: 0.12,
-                        duration: 0.8,
-                        ease: "power2.out"
-                    });
+                    gsap.fromTo(cards, 
+                        { y: 30, opacity: 0 },
+                        {
+                            scrollTrigger: {
+                                trigger: grid,
+                                scroller: scrollerEl,
+                                start: "top 88%",
+                                once: true
+                            },
+                            y: 0,
+                            opacity: 1,
+                            stagger: 0.1,
+                            duration: 0.8,
+                            ease: "power2.out",
+                            clearProps: "opacity,transform"
+                        }
+                    );
                 }
             });
 
@@ -262,25 +273,25 @@ export const useGlobalAnimations = (rootRef) => {
             });
 
             // 6. IMAGE ANIMATIONS
-            // Subtle zoom reveal on scroll (1.05 to 1)
+            // Subtle fade reveal on scroll (NO SCALE to prevent resizing jumps)
             q("img").forEach(img => {
                 if (img.dataset.animatedImg === 'true') return;
                 if (img.closest('header')) return;
                 img.dataset.animatedImg = 'true';
 
                 gsap.fromTo(img,
-                    { scale: 1.05, opacity: 0 },
+                    { opacity: 0 },
                     {
                         scrollTrigger: {
                             trigger: img,
                             scroller: scrollerEl,
-                            start: "top 92%",
+                            start: "top 95%",
                             once: true
                         },
-                        scale: 1,
                         opacity: 1,
-                        duration: 1.2,
-                        ease: "power2.out"
+                        duration: 1,
+                        ease: "power2.out",
+                        clearProps: "opacity"
                     }
                 );
             });
