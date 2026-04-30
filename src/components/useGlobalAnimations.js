@@ -28,7 +28,6 @@ const wrapTextInSpans = (el) => {
             } else {
                 const span = document.createElement('span');
                 span.textContent = char;
-                span.style.opacity = '0';
                 fragment.appendChild(span);
                 chars.push(span);
             }
@@ -98,7 +97,14 @@ export const useGlobalAnimations = (rootRef) => {
                 // Smooth section entrance on load - no scale to prevent layout shift
                 gsap.fromTo(heroSection,
                     { opacity: 0 },
-                    { opacity: 1, duration: 1, ease: "power2.out", clearProps: "opacity" }
+                    { 
+                        opacity: 1, 
+                        duration: 1, 
+                        ease: "power2.out", 
+                        immediateRender: false,
+                        clearProps: "opacity",
+                        onComplete: () => gsap.set(heroSection, { opacity: 1, visibility: "visible" })
+                    }
                 );
 
                 const headline = heroSection.querySelector("h1");
@@ -108,14 +114,32 @@ export const useGlobalAnimations = (rootRef) => {
                 if (headline) {
                     gsap.fromTo(headline, 
                         { y: 20, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out", clearProps: "opacity,transform" }
+                        { 
+                            y: 0, 
+                            opacity: 1, 
+                            duration: 0.8, 
+                            delay: 0.2, 
+                            ease: "power2.out", 
+                            immediateRender: false,
+                            clearProps: "opacity,transform",
+                            onComplete: () => gsap.set(headline, { opacity: 1, visibility: "visible" })
+                        }
                     );
                 }
 
                 if (subtext) {
                     gsap.fromTo(subtext, 
                         { y: 15, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 0.8, delay: 0.4, ease: "power2.out", clearProps: "opacity,transform" }
+                        { 
+                            y: 0, 
+                            opacity: 1, 
+                            duration: 0.8, 
+                            delay: 0.4, 
+                            ease: "power2.out", 
+                            immediateRender: false,
+                            clearProps: "opacity,transform",
+                            onComplete: () => gsap.set(subtext, { opacity: 1, visibility: "visible" })
+                        }
                     );
                 }
 
@@ -129,7 +153,9 @@ export const useGlobalAnimations = (rootRef) => {
                             delay: 0.6, 
                             stagger: 0.1, 
                             ease: "power2.out",
-                            clearProps: "opacity,transform" 
+                            immediateRender: false,
+                            clearProps: "opacity,transform",
+                            onComplete: () => gsap.set(ctas, { opacity: 1, visibility: "visible" })
                         }
                     );
                 }
@@ -154,7 +180,9 @@ export const useGlobalAnimations = (rootRef) => {
                         opacity: 1,
                         duration: 1,
                         ease: "power2.out",
-                        clearProps: "opacity,transform"
+                        immediateRender: false,
+                        clearProps: "opacity,transform",
+                        onComplete: () => gsap.set(section, { opacity: 1, visibility: "visible" })
                     }
                 );
             });
@@ -178,7 +206,9 @@ export const useGlobalAnimations = (rootRef) => {
                         opacity: 1,
                         duration: 0.8,
                         ease: "power2.out",
-                        clearProps: "opacity,transform"
+                        immediateRender: false,
+                        clearProps: "opacity,transform",
+                        onComplete: () => gsap.set(el, { opacity: 1, visibility: "visible" })
                     }
                 );
             });
@@ -201,7 +231,9 @@ export const useGlobalAnimations = (rootRef) => {
                         opacity: 1,
                         duration: 1,
                         ease: "power2.out",
-                        clearProps: "opacity,transform"
+                        immediateRender: false,
+                        clearProps: "opacity,transform",
+                        onComplete: () => gsap.set(el, { opacity: 1, visibility: "visible" })
                     }
                 );
             });
@@ -231,7 +263,9 @@ export const useGlobalAnimations = (rootRef) => {
                             stagger: 0.1,
                             duration: 0.8,
                             ease: "power2.out",
-                            clearProps: "opacity,transform"
+                            immediateRender: false,
+                            clearProps: "opacity,transform",
+                            onComplete: () => gsap.set(cards, { opacity: 1, visibility: "visible" })
                         }
                     );
                 }
@@ -291,7 +325,9 @@ export const useGlobalAnimations = (rootRef) => {
                         opacity: 1,
                         duration: 1,
                         ease: "power2.out",
-                        clearProps: "opacity"
+                        immediateRender: false,
+                        clearProps: "opacity",
+                        onComplete: () => gsap.set(img, { opacity: 1, visibility: "visible" })
                     }
                 );
             });
@@ -366,18 +402,23 @@ export const useGlobalAnimations = (rootRef) => {
                 const chars = wrapTextInSpans(p);
                 
                 if (chars.length > 0) {
-                    gsap.to(chars, {
-                        scrollTrigger: {
-                            trigger: p,
-                            scroller: scrollerEl,
-                            start: "top 90%",
-                            once: true
-                        },
-                        opacity: 1,
-                        duration: 0.1,
-                        stagger: 0.015,
-                        ease: "power1.inOut"
-                    });
+                    gsap.fromTo(chars, 
+                        { opacity: 0 },
+                        {
+                            scrollTrigger: {
+                                trigger: p,
+                                scroller: scrollerEl,
+                                start: "top 90%",
+                                once: true
+                            },
+                            opacity: 1,
+                            duration: 0.1,
+                            stagger: 0.015,
+                            ease: "power1.inOut",
+                            immediateRender: false,
+                            onComplete: () => gsap.set(chars, { opacity: 1, visibility: "visible", clearProps: "all" })
+                        }
+                    );
                 }
             });
 
