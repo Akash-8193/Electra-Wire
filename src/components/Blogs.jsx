@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageInteractions } from './usePageInteractions';
 
-import img1 from '../assets/Image Apr 29, 2026, 02_58_02 PM.png';
+// import video1 from '../assets/electric-video.mp4';
 import img2 from '../assets/Image Apr 29, 2026, 12_02_58 PM.png';
 import img3 from '../assets/Image Apr 29, 2026, 03_26_01 PM.png';
 
@@ -71,7 +71,15 @@ const Blogs = () => {
                                     {/* Blog Card 1 */}
                                     <div className="flex flex-col gap-5">
                                         <div className="overflow-hidden rounded-[28px] bg-[#f4efe2]" style={{ aspectRatio: '1535 / 1024' }}>
-                                            <img alt="Why Fire Retardant Wires Are Essential" loading="lazy" decoding="async" className="h-full w-full object-contain" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%', color: 'transparent' }} src={img1} />
+                                       <video
+  src="/src/assets/electric-video.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="h-full w-full object-contain"
+/>
+                                            {/* <img alt="Why Fire Retardant Wires Are Essential" loading="lazy" decoding="async" className="h-full w-full object-contain" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%', color: 'transparent' }} src={img1} /> */}
                                         </div>
                                         <div className="flex flex-col gap-3 px-1">
                                             <span className="text-sm font-semibold text-[#da990f]">Safety Guidelines • May 15, 2026</span>

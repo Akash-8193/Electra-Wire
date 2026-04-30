@@ -98,7 +98,7 @@ export const useGlobalAnimations = (rootRef) => {
                 // Smooth section entrance on load
                 gsap.fromTo(heroSection,
                     { opacity: 0 },
-                    { opacity: 1, duration: 1.2, ease: "power3.out" }
+                    { opacity: 1, duration: 1.2, ease: "power3.out", clearProps: "opacity" }
                 );
 
                 const headline = heroSection.querySelector("h1");
@@ -106,35 +106,33 @@ export const useGlobalAnimations = (rootRef) => {
                 const ctas = heroSection.querySelectorAll("a[data-slot='button'], button[data-slot='button']");
 
                 if (headline) {
-                    gsap.from(headline, {
-                        y: 30,
-                        opacity: 0,
-                        duration: 1,
-                        delay: 0.3,
-                        ease: "power3.out"
-                    });
+                    gsap.fromTo(headline, 
+                        { y: 30, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 1, delay: 0.3, ease: "power4.out", clearProps: "all" }
+                    );
                 }
 
                 if (subtext) {
-                    gsap.from(subtext, {
-                        y: 20,
-                        opacity: 0,
-                        duration: 1,
-                        delay: 0.6,
-                        ease: "power3.out"
-                    });
+                    gsap.fromTo(subtext, 
+                        { y: 20, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 1, delay: 0.6, ease: "power3.out", clearProps: "all" }
+                    );
                 }
 
                 if (ctas.length > 0) {
-                    gsap.from(ctas, {
-                        y: 15,
-                        opacity: 0,
-                        scale: 0.95,
-                        duration: 0.8,
-                        delay: 0.9,
-                        stagger: 0.1,
-                        ease: "power3.out"
-                    });
+                    gsap.fromTo(ctas, 
+                        { y: 15, opacity: 0, scale: 0.95 },
+                        { 
+                            y: 0, 
+                            opacity: 1, 
+                            scale: 1, 
+                            duration: 0.8, 
+                            delay: 0.9, 
+                            stagger: 0.1, 
+                            ease: "power3.out",
+                            clearProps: "transform,opacity,scale" 
+                        }
+                    );
                 }
             }
 
@@ -143,18 +141,23 @@ export const useGlobalAnimations = (rootRef) => {
             sections.forEach(section => {
                 if (section === heroSection) return;
 
-                gsap.from(section, {
-                    scrollTrigger: {
-                        trigger: section,
-                        scroller: scrollerEl,
-                        start: "top 85%",
-                        once: true
-                    },
-                    y: 40,
-                    opacity: 0,
-                    duration: 1,
-                    ease: "power2.out"
-                });
+                gsap.fromTo(section, 
+                    { y: 40, opacity: 0 },
+                    {
+                        scrollTrigger: {
+                            trigger: section,
+                            scroller: scrollerEl,
+                            start: "top 90%",
+                            toggleActions: "play none none none",
+                            once: true
+                        },
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power2.out",
+                        clearProps: "all"
+                    }
+                );
             });
 
             // 4. TEXT REVEAL (PREMIUM STAGGER)
@@ -283,13 +286,28 @@ export const useGlobalAnimations = (rootRef) => {
             });
 
             // 7. BUTTON INTERACTIONS
-            // Clean subtle hover scale
+            // CTA Button Hover Effects - Enhanced Interactivity
             q("a[data-slot='button'], button[data-slot='button']").forEach(btn => {
+                // Ensure initial visibility if not already set by entrance animations
+                gsap.set(btn, { opacity: 1, visibility: 'visible' });
+
                 const onEnter = () => {
-                    gsap.to(btn, { scale: 1.03, duration: 0.3, ease: "power2.out" });
+                    gsap.to(btn, { 
+                        scale: 1.03, 
+                        y: -2,
+                        boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)",
+                        duration: 0.3, 
+                        ease: "power2.out" 
+                    });
                 };
                 const onLeave = () => {
-                    gsap.to(btn, { scale: 1, duration: 0.3, ease: "power2.out" });
+                    gsap.to(btn, { 
+                        scale: 1, 
+                        y: 0,
+                        boxShadow: "none",
+                        duration: 0.3, 
+                        ease: "power2.out" 
+                    });
                 };
                 btn.addEventListener('mouseenter', onEnter);
                 btn.addEventListener('mouseleave', onLeave);
