@@ -11,9 +11,7 @@ const Footer = () => {
                             {/* Column 1: Logo */}
                             <div className="flex flex-col justify-center gap-5 p-8 not-last:border-b @tablet:p-6 @desktop:border-b-0! @tablet:border-b-0! @tablet:border-r @desktop:border-r" style={{ borderColor: '#70706a' }}>
                                 <Link className="flex items-center justify-center" aria-label="Home" to="/">
-                                    <p className="min-w-0 [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-bold tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-title-lg-font-size)', '--typography-line-height': 'var(--typography-title-lg-line-height)', '--typography-letter-spacing': 'var(--typography-title-lg-letter-spacing)', '--typography-font-family': 'var(--typography-title-lg-font-family)' }}>
-                                        <span style={{ color: '#E53E3E' }}>ELECTRA</span> <span style={{ color: '#000000' }}>WIRES</span>
-                                    </p>
+                                    <img src="/electra-logo.png" alt="Electra Wires Logo" className="h-18 w-auto object-contain" />
                                 </Link>
                             </div>
                             
