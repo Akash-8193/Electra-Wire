@@ -22,16 +22,16 @@ const Blogs = () => {
                                 <div className="flex h-full flex-col gap-6">
                                     <div className="flex flex-col items-start gap-4">
                                         <h1 id="blogs-main-title" className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-display-sm-font-size)', '--typography-font-weight': 'var(--typography-display-sm-font-weight)', '--typography-line-height': 'var(--typography-display-sm-line-height)', '--typography-letter-spacing': 'var(--typography-display-sm-letter-spacing)', '--typography-font-family': 'var(--typography-display-sm-font-family)', color: '#000000 !important', opacity: 1, visibility: 'visible' }}>
-                                            Industry Insights & Electra Updates
+                                            Electrical Wire Insights & Industry Updates
                                         </h1>
                                         <p className="whitespace-pre-line [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#000000', opacity: 1, visibility: 'visible' }}>
-                                            Stay informed with the latest news, safety standards, and innovations in the electrical wires and cables industry.
+                                            Stay updated with expert insights on electrical wires, FR cables, industrial wiring solutions, and the latest safety standards in the industry.
                                         </p>
                                     </div>
                                     <div className="grid grid-cols-1 gap-4 @tablet:flex @tablet:flex-row items-start @tablet:justify-start">
-                                        <Link data-slot="button" label="Latest Articles" style={{ '--bg-color': '#E8A317', '--hover-bg-color': '#da990f', color: '#000' }} className="inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg border border-(--bg-color) hover:border-(--hover-bg-color) gap-2 px-5 py-2.5 rounded-3xl" to="#latest-articles">
+                                        <Link data-slot="button" label="Explore Articles" style={{ '--bg-color': '#E8A317', '--hover-bg-color': '#da990f', color: '#000' }} className="inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-error-border aria-invalid:ring-error-interactive-bg border border-(--bg-color) hover:border-(--hover-bg-color) gap-2 px-5 py-2.5 rounded-3xl" to="#latest-articles">
                                             <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#000' }}>
-                                                Latest Articles
+                                                Explore Articles
                                             </span>
                                         </Link>
                                     </div>
@@ -71,7 +71,7 @@ const Blogs = () => {
                                         </span>
                                     </div>
                                     <h2 className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-display-sm-font-size)', '--typography-font-weight': 'var(--typography-display-sm-font-weight)', '--typography-line-height': 'var(--typography-display-sm-line-height)', '--typography-letter-spacing': 'var(--typography-display-sm-letter-spacing)', '--typography-font-family': 'var(--typography-display-sm-font-family)', color: '#060603' }}>
-                                        Latest News & Articles
+                                        Latest Insights on Electrical Wires & Cables
                                     </h2>
                                 </div>
                             </div>
@@ -89,15 +89,14 @@ const Blogs = () => {
                                                 className="h-full w-full object-contain"
                                                 style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%' }}
                                             />
-                                            {/* <img alt="Why Fire Retardant Wires Are Essential" loading="lazy" decoding="async" className="h-full w-full object-contain" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: '50% 50%', color: 'transparent' }} src={img1} /> */}
                                         </div>
                                         <div className="flex flex-col gap-3 px-1">
-                                            <span className="text-sm font-semibold text-[#da990f]">Safety Guidelines • May 15, 2026</span>
+                                            <span className="text-sm font-semibold text-[#da990f]">Electrical Safety • May 15, 2026</span>
                                             <h3 className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-heading-sm-font-size)', '--typography-font-weight': 'var(--typography-heading-sm-font-weight)', '--typography-line-height': 'var(--typography-heading-sm-line-height)', '--typography-letter-spacing': 'var(--typography-heading-sm-letter-spacing)', '--typography-font-family': 'var(--typography-heading-sm-font-family)', color: '#060603' }}>
-                                                Why Fire Retardant Wires Are Essential for Homes
+                                                Why Fire-Resistant (FR) Wires Are Essential for Home Safety
                                             </h3>
                                             <p className="whitespace-pre-line [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#1b1b16' }}>
-                                                Explore the critical differences between standard wires and FR-LSH cables. Learn how making the right choice can save lives during an electrical emergency.
+                                                Understand the importance of FR wires in preventing fire hazards. Learn how fire-resistant electrical wires enhance safety and protect homes during emergencies.
                                             </p>
                                         </div>
                                     </div>
@@ -115,12 +114,12 @@ const Blogs = () => {
                                             />
                                         </div>
                                         <div className="flex flex-col gap-3 px-1">
-                                            <span className="text-sm font-semibold text-[#da990f]">Industrial Use • April 28, 2026</span>
+                                            <span className="text-sm font-semibold text-[#da990f]">Industrial Solutions • April 28, 2026</span>
                                             <h3 className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-heading-sm-font-size)', '--typography-font-weight': 'var(--typography-heading-sm-font-weight)', '--typography-line-height': 'var(--typography-heading-sm-line-height)', '--typography-letter-spacing': 'var(--typography-heading-sm-letter-spacing)', '--typography-font-family': 'var(--typography-heading-sm-font-family)', color: '#060603' }}>
-                                                Understanding Industrial Power Loads & Armoured Cables
+                                                Understanding Industrial Power Loads & Heavy-Duty Cables
                                             </h3>
                                             <p className="whitespace-pre-line [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#1b1b16' }}>
-                                                A comprehensive guide to selecting the right heavy-duty armoured cables for manufacturing plants to handle fluctuating power demands reliably.
+                                                Learn how industrial cables are designed to handle high voltage loads and demanding environments. Discover the right cable solutions for reliable industrial performance.
                                             </p>
                                         </div>
                                     </div>
@@ -138,12 +137,12 @@ const Blogs = () => {
                                             />
                                         </div>
                                         <div className="flex flex-col gap-3 px-1">
-                                            <span className="text-sm font-semibold text-[#da990f]">Renewable Energy • March 12, 2026</span>
+                                            <span className="text-sm font-semibold text-[#da990f]">Solar & Energy • March 12, 2026</span>
                                             <h3 className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-heading-sm-font-size)', '--typography-font-weight': 'var(--typography-heading-sm-font-weight)', '--typography-line-height': 'var(--typography-heading-sm-line-height)', '--typography-letter-spacing': 'var(--typography-heading-sm-letter-spacing)', '--typography-font-family': 'var(--typography-heading-sm-font-family)', color: '#060603' }}>
-                                                The Future of Solar Integration: UV-Resistant Wiring
+                                                Solar Wiring Solutions: The Role of UV-Resistant Electrical Cables
                                             </h3>
                                             <p className="whitespace-pre-line [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#1b1b16' }}>
-                                                As solar energy adoption rises, the demand for high-quality, weather-proof PV cables is at an all-time high. Find out what makes them indispensable.
+                                                Explore how UV-resistant wires and cables improve solar system efficiency and durability. Essential for long-term performance in outdoor environments.
                                             </p>
                                         </div>
                                     </div>
@@ -161,17 +160,17 @@ const Blogs = () => {
                         <div className="relative mx-auto max-w-[1536px] px-6 flex flex-col gap-4 py-16 @tablet:py-24 items-center justify-center text-center" style={{ zIndex: '10' }}>
                             <div className="flex flex-col max-w-2xl items-center">
                                 <h2 className="[font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-display-md-font-size)', '--typography-font-weight': 'var(--typography-display-md-font-weight)', '--typography-line-height': 'var(--typography-display-md-line-height)', '--typography-letter-spacing': 'var(--typography-display-md-letter-spacing)', '--typography-font-family': 'var(--typography-display-md-font-family)', color: '#f9f9f2' }}>
-                                    Subscribe to Our Newsletter
+                                    Stay Updated with Electrical Industry Insights
                                 </h2>
                             </div>
                             <div className="flex max-w-2xl flex-col gap-8">
                                 <p className="whitespace-pre-line [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-md-font-size)', '--typography-font-weight': 'var(--typography-body-md-font-weight)', '--typography-line-height': 'var(--typography-body-md-line-height)', '--typography-letter-spacing': 'var(--typography-body-md-letter-spacing)', '--typography-font-family': 'var(--typography-body-md-font-family)', color: '#e5e6de' }}>
-                                    Get the latest industry insights and updates directly in your inbox.
+                                    Subscribe to receive expert tips, product updates, and the latest trends in electrical wires, FR cables, and industrial wiring solutions.
                                 </p>
                                 <div className="grid grid-cols-1 gap-4 @tablet:flex @tablet:flex-row items-center @tablet:justify-center">
-                                    <Link data-slot="button" label="Contact Us" style={{ '--bg-color': '#E8A317', '--hover-bg-color': '#da990f', color: '#000' }} className="inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg border border-(--bg-color) hover:border-(--hover-bg-color) gap-2 px-5 py-2.5 rounded-3xl" to="/contact">
+                                    <Link data-slot="button" label="Subscribe Now" style={{ '--bg-color': '#E8A317', '--hover-bg-color': '#da990f', color: '#000' }} className="inline-flex shrink-0 cursor-pointer items-center justify-center bg-(--bg-color) whitespace-nowrap transition-all outline-none hover:bg-(--hover-bg-color) focus-visible:border-primary-border focus-visible:ring-[3px] focus-visible:ring-primary-interactive-bg border border-(--bg-color) hover:border-(--hover-bg-color) gap-2 px-5 py-2.5 rounded-3xl" to="/contact">
                                         <span className="min-w-0 overflow-hidden text-ellipsis [font-family:var(--typography-font-family)] [font-size:var(--typography-font-size)] leading-(--typography-line-height) font-(--typography-font-weight) tracking-(--typography-letter-spacing)" style={{ '--typography-font-size': 'var(--typography-body-sm-em-font-size)', '--typography-font-weight': 'var(--typography-body-sm-em-font-weight)', '--typography-line-height': 'var(--typography-body-sm-em-line-height)', '--typography-letter-spacing': 'var(--typography-body-sm-em-letter-spacing)', '--typography-font-family': 'var(--typography-body-sm-em-font-family)', color: '#000' }}>
-                                            Contact Us
+                                            Subscribe Now
                                         </span>
                                     </Link>
                                 </div>
